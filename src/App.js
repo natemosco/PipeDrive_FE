@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react"
+import { Route, Switch, withRouter } from "react-router-dom"
+import { bindActionCreators, compose } from "redux"
+import { connect } from "react-redux"
+import LandingPage from "./pages/LandingPage"
+import { AddPersons } from './pages/AddPersons';
 
-function App() {
+
+function App(props) {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/addPerson" component={AddPersons} />
+      </Switch>
+
+
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ }) => ({});
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch);
+
+export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(App)
+
+
