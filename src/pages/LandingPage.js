@@ -12,6 +12,7 @@ import DisplayTable from "../components/DisplayTable"
 
 function LandingPage(props) {
   const { getAllPersons, deleteOnePerson } = props
+  // console.log(props)
   const [personsArr, setpersonsArr] = useState(props.allPersonsList)
   const refresh = () => { getAllPersons() }
   const handleDeleteOnePerson = (id) => { deleteOnePerson(id) }

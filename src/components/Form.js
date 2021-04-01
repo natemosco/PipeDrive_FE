@@ -20,7 +20,7 @@ export default function Form(props) {
   const onChangeHandler = (event) => {
     event.persist()
     event.preventDefault()
-    console.log(event)
+    // console.log(event)
     const name = event.target.id
     const value = event.target.value
     setformFields({ ...formFields, [name]: value })
@@ -99,7 +99,6 @@ export default function Form(props) {
       </div>
       <button type="submit">Add New Person</button>
     </form>
-
   );
 
 }

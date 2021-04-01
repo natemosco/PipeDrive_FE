@@ -8,11 +8,13 @@ import { getAllPersons, addOnePerson } from "../actions"
 import Form from "../components/Form"
 
 
-export const AddPersons = (props) => {
-  const { personAddedSuccessfully, getAllPersons, addOnePerson } = props
+const AddPersons = (props) => {
+  const { personAddedSuccessfully, addOnePerson } = props
   const [addedSuccess, setAddedSuccess] = useState(personAddedSuccessfully)
   const refresh = () => { getAllPersons() }
-  const addPerson = (personData) => { addOnePerson(personData) }
+  const addPerson = (personData) => {
+    addOnePerson(personData)
+  }
 
   useEffect(() => {
     setAddedSuccess(personAddedSuccessfully)
@@ -30,6 +32,6 @@ const mapStateToProps = ({ persons }) => ({
   personAddedSuccessfully: persons.personAddedSuccessfully
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({ getAllPersons, addOnePerson }, dispatch)
+const mapDispatchToProps = (dispatch) => bindActionCreators({ getAllPersons, addOnePerson }, dispatch)
 
 export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(AddPersons)

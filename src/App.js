@@ -4,7 +4,7 @@ import { Route, Switch, withRouter } from "react-router-dom"
 import { bindActionCreators, compose } from "redux"
 import { connect } from "react-redux"
 import LandingPage from "./pages/LandingPage"
-import { AddPersons } from './pages/AddPersons';
+import AddPersons from './pages/AddPersons';
 
 
 function App(props) {

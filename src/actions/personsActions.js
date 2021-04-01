@@ -38,13 +38,12 @@ export const deleteOnePerson = (id) => async (dispatch) => {
   return completed
 }
 
-export const addOnePerson = (data) => (dispatch) => {
+export const addOnePerson = (data) => async (dispatch) => {
   const newPerson = {
     name: data.name,
     email: [data.email],
     phone: [data.phone]
   }
-
   axios.post(baseUrl, newPerson)
     .then(res => {
       console.log(res)
